@@ -1,11 +1,12 @@
 package com.example.rafaj.fragmentapp;
 
-import android.media.Image;
-import android.widget.ImageView;
 
-import java.io.Serializable;
+import android.annotation.SuppressLint;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class Objetos implements Serializable {
+@SuppressLint("ParcelCreator")
+public class Objetos implements Parcelable {
     private String nombre;
     private String distancia;
     private int imagen;
@@ -16,27 +17,33 @@ public class Objetos implements Serializable {
         this.imagen = imagen;
     }
 
-    public String getNombre() {
-        return nombre;
+    protected Objetos(Parcel in) {
+        nombre = in.readString();
+        distancia = in.readString();
+        imagen = in.readInt();
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(nombre);
+        dest.writeString(distancia);
+        dest.writeInt(imagen);
     }
 
-    public String getDistancia() {
-        return distancia;
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    public void setDistancia(String distancia) {
-        this.distancia = distancia;
-    }
+    public static final Creator<Objetos> CREATOR = new Creator<Objetos>() {
+        @Override
+        public Objetos createFromParcel(Parcel in) {
+            return new Objetos(in);
+        }
 
-    public int getImagen() {
-        return imagen;
-    }
-
-    public void setImagen(int imagen) {
-        this.imagen = imagen;
-    }
+        @Override
+        public Objetos[] newArray(int size) {
+            return new Objetos[size];
+        }
+    };
 }

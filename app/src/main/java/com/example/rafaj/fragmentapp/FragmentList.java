@@ -6,6 +6,7 @@ import android.app.ListFragment;
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +20,6 @@ import android.widget.Toast;
 
 public class FragmentList extends ListFragment implements AdapterView.OnItemClickListener{
     private Objetos objeto[] = new Objetos[9];
-
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -45,7 +43,7 @@ public class FragmentList extends ListFragment implements AdapterView.OnItemClic
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         ArrayAdapter adapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.Planets, android.R.layout.simple_list_item_1);
+                R.array.Planets, android.R.layout.simple_list_item_1); //Busca en strings.xml
         setListAdapter(adapter);
         getListView().setOnItemClickListener(this);
     }
@@ -63,10 +61,7 @@ public class FragmentList extends ListFragment implements AdapterView.OnItemClic
             newIntent.putExtra(Intent.EXTRA_TEXT, adapterView.getItemAtPosition(i).toString());
 
             Bundle bundle2 = new Bundle();
-            bundle2.putString(Intent.EXTRA_TEXT, adapterView.getItemAtPosition(i).toString());
-            bundle2.putString("KEY2", info[i]);
-            newIntent.putExtras(bundle2);
-            startActivity(newIntent);
+            bundle2.putParcelable("KEY", (Parcelable) objeto[i]);
         }else if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
             Toast.makeText(getActivity(), "Item: " + adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_SHORT).show();
 

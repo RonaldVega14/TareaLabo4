@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,6 +16,7 @@ import android.widget.Toast;
 public class FragmentViewer extends Fragment {
     TextView text;
     TextView text2;
+    ImageView imagen;
     private Objetos objeto;
 
     @Override
@@ -23,6 +25,7 @@ public class FragmentViewer extends Fragment {
 
         text = view.findViewById(R.id.textId);
         text2 = view.findViewById(R.id.textId2);
+        imagen = view.findViewById(R.id.imagen);
         Bundle bundle = this.getArguments();
 
 
