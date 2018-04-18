@@ -7,9 +7,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Main2Activity extends AppCompatActivity {
-    TextView text;
-    TextView text2;
-    ImageView imagen;
+    private TextView text;
+    private TextView text2;
+    private ImageView imagen;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,21 +24,18 @@ public class Main2Activity extends AppCompatActivity {
         String intentAction = callingIntent.getAction();
         String intentType = callingIntent.getType();
 
-        if (Intent.ACTION_SEND.equals(intentAction) && intentType != null){
-            if (intentType.equals("text/plain")){
-                handleReceivedText(callingIntent);
-            }
-        }
+        handleReceivedText(callingIntent);
+
 
     }
 
     private void handleReceivedText(Intent intent){
-        String intentText = intent.getStringExtra(Intent.EXTRA_TEXT);
-        Bundle bundle = intent.getExtras();
+        Objetos objeto = intent.getExtras().getParcelable("KEY");
 
         if (text != null && text2 != null){
-            text.setText(intentText);
-            text2.setText(bundle.getString("KEY2"));
+            text.setText(objeto.getNombre());
+            text2.setText(objeto.getDistancia());
+            imagen.setImageResource(objeto.getImagen());
         }
     }
 }
