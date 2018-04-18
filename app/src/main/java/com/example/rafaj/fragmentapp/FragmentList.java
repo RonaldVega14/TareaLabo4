@@ -25,7 +25,7 @@ public class FragmentList extends ListFragment implements AdapterView.OnItemClic
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         objeto[0] = new Objetos("sol", "0 km", R.drawable.sun);
-        objeto[1] = new Objetos("Mercury", "57.910.000 km", R.drawable.sun);
+        objeto[1] = new Objetos("Mercury", "57.910.000 km", R.drawable.mercury);
         objeto[2] = new Objetos("Venus", "108.200.000 km", R.drawable.venus);
         objeto[3] = new Objetos("Earth", "146.600.000 km", R.drawable.earth);
         objeto[4] = new Objetos("Mars", "227.940.000 km", R.drawable.mars);
@@ -52,23 +52,24 @@ public class FragmentList extends ListFragment implements AdapterView.OnItemClic
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         //Toast.makeText(getActivity(), "Item: " + adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_SHORT).show();
-        String[] info = getResources().getStringArray(R.array.Dir);
+
 
         if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT){
-            Intent newIntent = new Intent(getActivity().getApplicationContext(), Main2Activity.class);
-            newIntent.setAction(Intent.ACTION_SEND);
-            newIntent.setType("text/plain");
-            newIntent.putExtra(Intent.EXTRA_TEXT, adapterView.getItemAtPosition(i).toString());
 
             Bundle bundle2 = new Bundle();
-            bundle2.putParcelable("KEY", (Parcelable) objeto[i]);
+            bundle2.putParcelable("KEY", objeto[i]);
+
+            Intent newIntent = new Intent(getActivity().getApplicationContext(), Main2Activity.class);
+            newIntent.putExtras(bundle2);
+            startActivity(newIntent);
+
         }else if(getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
-            Toast.makeText(getActivity(), "Item: " + adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getActivity(), "Item: " + adapterView.getItemAtPosition(i).toString(), Toast.LENGTH_SHORT).show();
 
 
             Bundle bundle = new Bundle();
-            bundle.putString("KEY", adapterView.getItemAtPosition(i).toString());
-            bundle.putString("KEY2", info[i]);
+            bundle.putParcelable("KEY", objeto[i]);
+
             FragmentViewer frag = new FragmentViewer();
             frag.setArguments(bundle);
 
