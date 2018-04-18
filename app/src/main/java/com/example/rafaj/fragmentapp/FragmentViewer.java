@@ -14,9 +14,9 @@ import android.widget.Toast;
  */
 
 public class FragmentViewer extends Fragment {
-    TextView text;
-    TextView text2;
-    ImageView imagen;
+    private TextView text;
+    private TextView text2;
+    private ImageView imagen;
     private Objetos objeto;
 
     @Override
@@ -31,10 +31,11 @@ public class FragmentViewer extends Fragment {
 
         if(bundle != null){
             objeto = bundle.getParcelable("KEY");
-            Toast.makeText(getActivity(), "Item: " + bundle.getString("KEY"), Toast.LENGTH_SHORT).show();
+            // Toast.makeText(getActivity(), "Item: " + bundle.getString("KEY"), Toast.LENGTH_SHORT).show();
+            text.setText(objeto.getNombre());
+            text2.setText(objeto.getDistancia());
+            imagen.setImageResource(objeto.getImagen());
 
-            text.setText(bundle.getString("KEY"));
-            text2.setText(bundle.getString("KEY2"));
 
         }
 
