@@ -46,4 +46,20 @@ public class Objetos implements Parcelable {
             return new Objetos[size];
         }
     };
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getDistancia() {
+        return distancia;
+    }
+
+    public int getImagen() {
+        return imagen;
+    }
+
+    public static Creator<Objetos> getCREATOR() {
+        return CREATOR;
+    }
 }
