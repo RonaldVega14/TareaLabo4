@@ -5,6 +5,7 @@ import android.app.FragmentTransaction;
 import android.app.ListFragment;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
@@ -24,6 +25,17 @@ public class FragmentList extends ListFragment implements AdapterView.OnItemClic
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
+        String[] info = getResources().getStringArray(R.array.Dir);
+        String[] nombre = getResources().getStringArray(R.array.Planets);
+        TypedArray img = getResources().obtainTypedArray(R.array.img);
+
+
+        for(int i=0; i<objeto.length; i++){
+            objeto[i] = new Objetos(nombre[i], info[i], img.getResourceId(i, -1));
+        }
+
+        /*
+
         objeto[0] = new Objetos("sol", "0 km", R.drawable.sun);
         objeto[1] = new Objetos("Mercury", "57.910.000 km", R.drawable.mercury);
         objeto[2] = new Objetos("Venus", "108.200.000 km", R.drawable.venus);
@@ -33,6 +45,7 @@ public class FragmentList extends ListFragment implements AdapterView.OnItemClic
         objeto[6] = new Objetos("Saturn", "1.429.400.000 km", R.drawable.saturn);
         objeto[7] = new Objetos("Uranus", "2.870.990.000 km", R.drawable.uranus);
         objeto[8] = new Objetos("Neptune", "4.504.300.000 km", R.drawable.neptune);
+        */
 
         View view = inflater.inflate(R.layout.list_fragment, container, false);
         return view;
