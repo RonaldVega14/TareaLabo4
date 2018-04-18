@@ -35,19 +35,6 @@ public class FragmentList extends ListFragment implements AdapterView.OnItemClic
             objeto[i] = new Objetos(nombre[i], info[i], img.getResourceId(i, -1), inf[i]);
         }
 
-        /*
-
-        objeto[0] = new Objetos("sol", "0 km", R.drawable.sun);
-        objeto[1] = new Objetos("Mercury", "57.910.000 km", R.drawable.mercury);
-        objeto[2] = new Objetos("Venus", "108.200.000 km", R.drawable.venus);
-        objeto[3] = new Objetos("Earth", "146.600.000 km", R.drawable.earth);
-        objeto[4] = new Objetos("Mars", "227.940.000 km", R.drawable.mars);
-        objeto[5] = new Objetos("Jupiter", "778.330.000 km", R.drawable.jupiter);
-        objeto[6] = new Objetos("Saturn", "1.429.400.000 km", R.drawable.saturn);
-        objeto[7] = new Objetos("Uranus", "2.870.990.000 km", R.drawable.uranus);
-        objeto[8] = new Objetos("Neptune", "4.504.300.000 km", R.drawable.neptune);
-        */
-
         View view = inflater.inflate(R.layout.list_fragment, container, false);
         return view;
     }
