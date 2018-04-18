@@ -16,6 +16,7 @@ import android.widget.Toast;
 public class FragmentViewer extends Fragment {
     private TextView text;
     private TextView text2;
+    private TextView text3;
     private ImageView imagen;
     private Objetos objeto;
 
@@ -25,6 +26,7 @@ public class FragmentViewer extends Fragment {
 
         text = view.findViewById(R.id.textId);
         text2 = view.findViewById(R.id.textId2);
+        text3 = view.findViewById(R.id.textId3);
         imagen = view.findViewById(R.id.imagen);
         Bundle bundle = this.getArguments();
 
@@ -34,6 +36,7 @@ public class FragmentViewer extends Fragment {
             // Toast.makeText(getActivity(), "Item: " + bundle.getString("KEY"), Toast.LENGTH_SHORT).show();
             text.setText(objeto.getNombre());
             text2.setText(objeto.getDistancia());
+            text3.setText(objeto.getInfo());
             imagen.setImageResource(objeto.getImagen());
 
 

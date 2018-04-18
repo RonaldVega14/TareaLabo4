@@ -27,11 +27,12 @@ public class FragmentList extends ListFragment implements AdapterView.OnItemClic
 
         String[] info = getResources().getStringArray(R.array.Dir);
         String[] nombre = getResources().getStringArray(R.array.Planets);
+        String[] inf = getResources().getStringArray(R.array.inf);
         TypedArray img = getResources().obtainTypedArray(R.array.img);
 
 
         for(int i=0; i<objeto.length; i++){
-            objeto[i] = new Objetos(nombre[i], info[i], img.getResourceId(i, -1));
+            objeto[i] = new Objetos(nombre[i], info[i], img.getResourceId(i, -1), inf[i]);
         }
 
         /*

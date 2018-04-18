@@ -9,6 +9,7 @@ import android.widget.TextView;
 public class Main2Activity extends AppCompatActivity {
     private TextView text;
     private TextView text2;
+    private TextView text3;
     private ImageView imagen;
 
     @Override
@@ -18,6 +19,7 @@ public class Main2Activity extends AppCompatActivity {
 
         text = findViewById(R.id.textId);
         text2 = findViewById(R.id.textId2);
+        text3 = findViewById(R.id.textId3);
         imagen = findViewById(R.id.imagen);
 
         Intent callingIntent = getIntent();
@@ -35,6 +37,7 @@ public class Main2Activity extends AppCompatActivity {
         if (text != null && text2 != null){
             text.setText(objeto.getNombre());
             text2.setText(objeto.getDistancia());
+            text3.setText(objeto.getInfo());
             imagen.setImageResource(objeto.getImagen());
         }
     }

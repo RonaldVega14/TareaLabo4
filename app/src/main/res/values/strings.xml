@@ -1,16 +1,16 @@
 <resources>
-    <string name="app_name">FragmentApp</string>
+    <string name="app_name">Tarea Labo 4</string>
 
     <string-array name="Planets">
-        <item>Sun</item>
-        <item>Mercury</item>
+        <item>Sol</item>
+        <item>Mercurio</item>
         <item>Venus</item>
-        <item>Earth</item>
-        <item>Mars</item>
+        <item>Tierra</item>
+        <item>Marte</item>
         <item>Jupiter</item>
-        <item>Saturn</item>
-        <item>Uranus</item>
-        <item>Neptune</item>
+        <item>Saturno</item>
+        <item>Urano</item>
+        <item>Neptuno</item>
     </string-array>
 
     <string-array name="Dir">
@@ -35,5 +35,18 @@
         <item>@drawable/saturn</item>
         <item>@drawable/uranus</item>
         <item>@drawable/neptune</item>
-    </integer-array>>
+    </integer-array>
+
+    <string-array name="inf">
+        <item>Estrella mas grande del sistema solar</item>
+        <item>Primer planeta del sistema solar</item>
+        <item>Segundo planeta del sistema solar</item>
+        <item>Tercero planeta del sistema solar</item>
+        <item>Cuarto planeta del sistema solar</item>
+        <item>Quinto planeta del sistema solar</item>
+        <item>Sexto planeta del sistema solar</item>
+        <item>Septimo planeta del sistema solar</item>
+        <item>Octavo planeta del sistema solar</item>
+    </string-array>
+
 </resources>

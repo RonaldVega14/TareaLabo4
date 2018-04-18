@@ -9,18 +9,21 @@ import android.os.Parcelable;
 public class Objetos implements Parcelable {
     private String nombre;
     private String distancia;
+    private String info;
     private int imagen;
 
-    public Objetos(String nombre, String distancia, int imagen) {
+    public Objetos(String nombre, String distancia, int imagen, String info) {
         this.nombre = nombre;
         this.distancia = distancia;
         this.imagen = imagen;
+        this.info = info;
     }
 
     protected Objetos(Parcel in) {
         nombre = in.readString();
         distancia = in.readString();
         imagen = in.readInt();
+        info = in.readString();
     }
 
     @Override
@@ -28,6 +31,7 @@ public class Objetos implements Parcelable {
         dest.writeString(nombre);
         dest.writeString(distancia);
         dest.writeInt(imagen);
+        dest.writeString(info);
     }
 
     @Override
@@ -55,11 +59,11 @@ public class Objetos implements Parcelable {
         return distancia;
     }
 
-    public int getImagen() {
-        return imagen;
+    public String getInfo() {
+        return info;
     }
 
-    public static Creator<Objetos> getCREATOR() {
-        return CREATOR;
+    public int getImagen() {
+        return imagen;
     }
 }
